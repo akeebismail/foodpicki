@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->double('phone');
             $table->string('password');
             $table->integer('status');
+            $table->integer('role_id')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

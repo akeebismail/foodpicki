@@ -20,7 +20,7 @@
                         <div class="widget-body">
                             <form>
                                 <div class="col-md-6">
-                                    <div class="row">
+                                    <div class="row"> 
                                         <div class="form-group col-sm-11 {{$errors->has('email')? 'has-error':''}}">
                                             @if($errors->has('email'))
                                                 <div class="help-block">
