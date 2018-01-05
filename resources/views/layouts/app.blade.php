@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }} - @yield('title') </title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <link href="{{asset('shop/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('shop/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('shop/css/animsition.min.css')}}" rel="stylesheet">
@@ -21,8 +21,20 @@
     @yield('stylesheet')
 
 </head>
-<body>
+<body class="home">
+<div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
 
+    @yield('header')
+
+    @yield('banner')
+
+    <div class="page-wrapper">
+        @yield('main')
+    </div>
+
+
+    @yield('footer')
+</div>
     <!-- Scripts -->
     <!--/end:Site wrapper -->
     <!-- Bootstrap core JavaScript
