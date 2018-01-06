@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 
 use App\Food\User\Keys;
 use Closure;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class UserActivaion
 {

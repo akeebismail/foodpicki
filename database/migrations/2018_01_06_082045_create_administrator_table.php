@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderMenufoodTable extends Migration
+class CreateAdministratorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateOrderMenufoodTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('order_menufood',function (Blueprint $table){
+        Schema::create('administrator', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order_id');
-            $table->integer('menufood_id');
-            $table->integer('quantity');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->double('phone');
+            $table->string('password');
+            $table->integer('status');
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +34,5 @@ class CreateOrderMenufoodTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('order_menufood');
     }
 }

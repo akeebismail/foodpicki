@@ -14,7 +14,17 @@
 Route::get('/', function () {
     return view('home');
 });
-
+Route::get('test',function (){
+    return \Illuminate\Support\Facades\Hash::make('adminthings');
+});
+Route::get('logout','Auth\LoginController@logout');
+Route::get('admin/login','Auth\AdminLoginController@showLoginForm');
+Route::post('admin/login','Auth\LoginController@login')->name('admin.login');
+Route::get('admin/logout','Auth\AdminLoginController@logout')->name('admin.logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix'=>'admin','middleware'=>'admin','as'=>'admin.'], function (){
+   Route::get('/','Admin\DashboardController@index')->name('dashboard');
+});

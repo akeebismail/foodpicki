@@ -18,7 +18,8 @@
                 <div class="col-md-8">
                     <div class="widget">
                         <div class="widget-body">
-                            <form>
+                            <form action="{{route('login')}}" method="post">
+                                {{csrf_field()}}
                                 <div class="col-md-6">
                                     <div class="row"> 
                                         <div class="form-group col-sm-11 {{$errors->has('email')? 'has-error':''}}">
@@ -28,16 +29,17 @@
                                                 </div>
                                             @endif
                                             <label for="exampleInputEmail1">Email</label>
-                                            <input class="form-control" type="email" value="{{old('email')}}" placeholder="email" id="example-text-input">
+                                            <input class="form-control" name="email" type="email" value="{{old('email')}}" placeholder="email" id="example-text-input">
                                         </div>
                                         <div class="form-group col-sm-11 {{$errors->has('password') ? 'has-error': ''}}">
                                             <label for="exampleInputPassword1"> Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                                            <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <p> <a href="#" class="btn theme-btn">Login</a> </p>
+
+                                            <button type="submit" class="btn theme-btn">Login</button>
                                         </div>
                                     </div>
                                 </div>

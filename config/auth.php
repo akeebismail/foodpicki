@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin'=>[
+            'driver'=>'session',
+            'provider' => 'admin'
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -69,7 +73,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Food\User\User::class,
         ],
-
+        'admin' => [
+            'driver'    => 'eloquent',
+            'model'     => \App\Food\User\Administrator::class
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
