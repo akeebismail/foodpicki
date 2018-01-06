@@ -8,70 +8,45 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title') </title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('css/AdminLTE.css') }}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{ asset('css/skins/skin-purple.min.css') }}">
-
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicons/apple-icon-57x57.png')}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicons/apple-icon-60x60.png')}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicons/apple-icon-72x72.png')}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicons/apple-icon-76x76.png')}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('favicons/apple-icon-114x114.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('favicons/apple-icon-120x120.png')}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('favicons/apple-icon-144x144.png')}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('favicons/apple-icon-152x152.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-icon-180x180.png')}}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicons/android-icon-192x192.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{ asset('favicons/manifest.json')}}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('favicons/ms-icon-144x144.png')}}">
-    <meta name="theme-color" content="#ffffff">
+    <link href="/assets/libs/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <link href="/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/libs/fontello/css/fontello.css" rel="stylesheet" />
+    <link href="/assets/libs/animate-css/animate.min.css" rel="stylesheet" />
+    <link href="/assets/libs/nifty-modal/css/component.css" rel="stylesheet" />
+    <link href="/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/libs/ios7-switch/ios7-switch.css" rel="stylesheet" />
+    <link href="/assets/libs/pace/pace.css" rel="stylesheet" />
+    <link href="/assets/libs/sortable/sortable-theme-bootstrap.css" rel="stylesheet" />
+    <link href="/assets/libs/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+    <link href="/assets/libs/jquery-icheck/skins/all.css" rel="stylesheet" />
+    <link href="assets/libs/prettify/github.css" rel="stylesheet" />
+    <!-- Extra CSS Libraries Start -->
+    <link href="assets/libs/rickshaw/rickshaw.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/morrischart/morris.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/jquery-jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/jquery-clock/clock.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/bootstrap-calendar/css/bic_calendar.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/sortable/sortable-theme-bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/jquery-weather/simpleweather.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/bootstrap-xeditable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Extra CSS Libraries End -->
+    <link href="assets/css/style-responsive.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-
-@include('admin.component.header', ['user' => auth()->user()])
-
-@include('admin.component.sidebar', ['user' => auth()->user()])
-
-<!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        @yield('content')
-    </div>
-    <!-- /.content-wrapper -->
-
-    @include('admin.component.footer')
-
+<body class="fixed-left">
+<!--modals to come here -->
+<div id="wrapper">
 
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery 2.2.3 -->
-<script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<!-- SlimScroll -->
-<script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
-<!-- FastClick -->
-<script src="{{ asset('js/fastclick.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('js/app.min.js') }}"></script>
-@yield('js')
 </body>
 </html>
