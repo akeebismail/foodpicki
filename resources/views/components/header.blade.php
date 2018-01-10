@@ -21,7 +21,7 @@
                                     <a class="dropdown-item" href="{{route('category.name',$value->slug)}}">{{$value->name}}</a>
                                 @endforeach
                                 <hr>
-                                <a class="dropdown-item">See all</a>
+                                <a href="{{route('category.name',$item->slug)}}" class="dropdown-item">See all</a>
                             </div>
 
                         @endif

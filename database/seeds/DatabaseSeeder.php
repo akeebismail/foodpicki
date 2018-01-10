@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Food\Category\Category;
+use App\Food\MenuFood\MenuFood;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,5 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        factory(Category::class,4)->create()->each(function (Category $category){
+            factory(MenuFood::class,10)->make()->each(function (MenuFood $menuFood) use ($category){
+                $category->menufood()->save($menuFood);
+            });
+        });
     }
 }

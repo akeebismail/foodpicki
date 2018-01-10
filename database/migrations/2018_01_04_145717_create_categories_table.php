@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->text('details');
             $table->longText('description');
-            $table->integer('parent')->default(0)->nullable();
+            $table->integer('parent_id')->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

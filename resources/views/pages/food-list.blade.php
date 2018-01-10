@@ -128,134 +128,22 @@
                 <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
                     <div class="row">
                         <!-- Each popular food item starts -->
+                        @foreach($food as $item)
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
                             <div class="food-item-wrap">
                                 <div class="figure-wrap bg-image" data-image-src="{{asset('shop/images/food1.jpg')}}">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
                                     <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
                                 </div>
                                 <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 15,99</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="{{asset('shop/images/logo1.png')}}" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
+                                    <h5><a href="#">{{$item->name}}</a></h5>
+                                    <div class="product-name">Food and Chiken chips </div>
+                                    <div class="price-btn-block"> <span class="price">$ {{$item->price}}</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Each popular food item starts -->
-                        <!-- Each popular food item starts -->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="{{asset('shop/images/food2.jpg')}}">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 18,49</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="{{asset('shop/images/logo2.png')}}" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item starts -->
-                        <!-- Each popular food item starts -->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="{{asset('shop/images/food3.jpg')}}">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 21,19</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="{{asset('shop/images/logo3.png')}}" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item starts -->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="{{asset('shop/images/food1.jpg')}}">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 21,19</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="{{asset('shop/images/logo3.png')}}" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item starts -->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="{{asset('shop/images/food1.jpg')}}">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 21,19</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="{{asset('shop/images/logo3.png')}}" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item starts -->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                            <div class="food-item-wrap">
-                                <div class="figure-wrap bg-image" data-image-src="{{asset('shop/images/food1.jpg')}}">
-                                    <div class="distance"><i class="fa fa-pin"></i>1240m</div>
-                                    <div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                    <div class="review pull-right"><a href="#">198 reviews</a> </div>
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">The South"s Best Fried Chicken</a></h5>
-                                    <div class="product-name">Fried Chicken with cheese</div>
-                                    <div class="price-btn-block"> <span class="price">$ 21,19</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
-                                </div>
-                                <div class="restaurant-block">
-                                    <div class="left">
-                                        <a class="pull-left" href="#"> <img src="{{asset('shop/images/logo3.png')}}" alt="Restaurant logo"> </a>
-                                        <div class="pull-left right-text"> <a href="#">Chicken Restaurant</a> <span>68 5th Avenue New York</span> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Each popular food item starts -->
+                        @endforeach
+
                         <div class="col-xs-12">
                             <nav aria-label="...">
                                 <ul class="pagination">

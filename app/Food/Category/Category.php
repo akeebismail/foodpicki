@@ -14,7 +14,10 @@ class Category extends Model
 
     protected $hidden =[];
     public function menufood(){
-        return $this->belongsTo(MenuFood::class);
+        return $this->belongsToMany(MenuFood::class);
+    }
+    public function images(){
+
     }
 
     public function parent(){

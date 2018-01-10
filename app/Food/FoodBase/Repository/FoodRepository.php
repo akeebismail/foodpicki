@@ -7,6 +7,7 @@
  */
 namespace App\Food\FoodBase\Repository;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class FoodRepository implements FoodInterface{
     protected $model;
@@ -118,6 +119,7 @@ class FoodRepository implements FoodInterface{
     /**
      * @param int $id
      * @return bool
+     * @throws \Exception
      */
     public function delete(int $id) : bool
     {
