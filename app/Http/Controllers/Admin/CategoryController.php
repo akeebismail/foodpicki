@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Food\Category\Repository\CategoryInterface;
+use App\Food\Category\Request\CreateCatogoryRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
+    private $_cat;
+    public function __construct(CategoryInterface $category)
+    {
+        $this->_cat = $category;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +23,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -25,6 +34,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('admin.pages.category.create');
     }
 
     /**
@@ -33,9 +43,18 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCatogoryRequest $request)
     {
         //
+        $category =$this->_cat->create([
+            'name'=> $request->name,
+            'slug'  => str_slug($request->name,'-'),
+            'details'   => $request->details,
+            'description'   => $request->description,
+            'parent'    => 0
+        ]);
+
+        return back()->with('status','success');
     }
 
     /**

@@ -4,11 +4,13 @@ namespace App\Food\Category;
 
 use App\Food\MenuFood\MenuFood;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
     //
-    protected $fillable =['name','slug','details'];
+    use SoftDeletes;
+    protected $fillable =['name','slug','details','description','parent_id'];
 
     protected $hidden =[];
     public function menufood(){
@@ -16,9 +18,9 @@ class Category extends Model
     }
 
     public function parent(){
-        return $this->belongsTo(static::class,'menu');
+        return $this->hasMany(static::class,'parent_id');
     }
     public function children(){
-        return $this->belongsTo(static::class,'menu');
+        return $this->belongsTo(static::class,'parent_id');
     }
 }

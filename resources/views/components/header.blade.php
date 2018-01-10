@@ -9,34 +9,24 @@
             </a>
             <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a>
+
+                    @foreach( $category as $item)
+                    <li class="nav-item  dropdown">
+                        <a class="nav-link {{($item->parent->count() > 0)? 'dropdown-toggle': ''}}  " data-toggle="{{($item->parent->count() > 0)? 'dropdown': ''}}"
+                           href="{{route('category.name',$item->slug)}}" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{$item->name}}</a>
+                        @if($item->parent->count() > 0)
+                            <div class="dropdown-menu">
+                                @foreach($item->parent as $value)
+                                    <a class="dropdown-item" href="{{route('category.name',$value->slug)}}">{{$value->name}}</a>
+                                @endforeach
+                                <hr>
+                                <a class="dropdown-item">See all</a>
+                            </div>
+
+                        @endif
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Food</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Food results</a>
-                            <a class="dropdown-item" href="map_results.html">Map results</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Restaurants</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="restaurants.html">Search results</a>
-                            <a class="dropdown-item" href="profile.html">Profile page</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Pricing</a>
-                            <a class="dropdown-item" href="">Contact</a>
-                            <a class="dropdown-item" href="">Submit restaurant</a>
-                            <a class="dropdown-item" href="">Registration</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Checkout</a>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

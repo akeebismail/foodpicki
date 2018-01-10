@@ -25,6 +25,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'admin','middleware'=>'admin','as'=>'admin.'], function (){
-   Route::get('/','Admin\DashboardController@index')->name('dashboard');
+Route::group(['prefix'=>'admin','middleware'=>'admin','as'=>'admin.','role'=>'admin'], function () {
+    Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+    Route::resource('category', 'Admin\CategoryController');
+    Route::resource('menufood', 'Admin\MenuFoodController');
+    Route::resource('address', 'Admin\AddressController');
+    Route::resource('order', 'Admin\OrderController');
 });
+Route::get('category','CategoryController@index')->name('category');
+Route::get('category/{slug}','CategoryController@show')->name('category.name');
+Route::get('category/{id}','CategoryController@showIn')->name('category.id');

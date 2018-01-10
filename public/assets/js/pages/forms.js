@@ -1,5 +1,5 @@
 $(function() {
 	$('.summernote').summernote({
-	  height: 500
+	  height: 200
 	});
 });

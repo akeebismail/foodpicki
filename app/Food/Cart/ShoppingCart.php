@@ -1,12 +1,7 @@
 <?php
 
 namespace App\Food\Cart;
-
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Eloquent\Model;
-use Gloudemans\ShoppingCart\Cart;
-use Illuminate\Session\SessionManager;
-
+use Gloudemans\Shoppingcart\Cart;
 class ShoppingCart extends Cart
 {
     //
