@@ -14,8 +14,9 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         factory(Category::class,4)->create()->each(function (Category $category){
-            factory(MenuFood::class,10)->make()->each(function (MenuFood $menuFood) use ($category){
+            factory(MenuFood::class,12)->make()->each(function (MenuFood $menuFood) use ($category){
                 $category->menufood()->save($menuFood);
+
             });
         });
     }

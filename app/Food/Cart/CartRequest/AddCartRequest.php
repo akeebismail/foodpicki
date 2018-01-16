@@ -14,6 +14,9 @@ class AddCartRequest extends FormRequest{
         return true;
     }
     public function rules(){
-        return [];
+        return [
+            'product'   => ['required', 'integer'],
+            'quantity'  => ['required', 'integer']
+        ];
     }
 }

@@ -19,35 +19,63 @@
                 <div class="col-md-8">
                     <div class="widget">
                         <div class="widget-body">
-                            <form>
+                            <form action="{{route('register')}}" method="post">
+                                {{csrf_field()}}
                                 <div class="row">
-                                    <div class="form-group col-sm-10">
-                                        <label for="exampleInputEmail1">First Name</label>
-                                        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                                    <div class="form-group col-sm-10  {{$errors->has('name')? 'has-error': ''}}">
+                                        <label for="exampleInputEmail1">Full Name</label>
+                                        <input class="form-control has-error" type="text" name="name" value="{{old('name')}}" >
+                                        @if($errors->has('name'))
+                                            <div class="help-block">
+                                                {{$errors->first('name')}}
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-6 {{$errors->has('email')? 'has-error' :''}}">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> <small id="emailHelp" class="form-text text-muted">We"ll never share your email with anyone else.</small>
+                                        <input type="email" class="form-control" name="email" value="{{old('email')}}" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <small id="emailHelp" class="form-text text-muted">We"ll never share your email with anyone else.</small>
+                                        @if($errors->has('email'))
+                                            <div class="help-block">
+                                                {{$errors->first('email')}}
+                                            </div>
+                                        @endif
                                     </div>
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-6 {{$errors->has('phone')? 'has-error' : ''}}">
                                         <label for="exampleInputEmail1">Phone number</label>
-                                        <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input-3"> <small class="form-text text-muted">We"ll never share your email with anyone else.</small>
+                                        <input class="form-control" name="phone" type="tel" value="{{old('phone')}}" id="example-tel-input-3"> <small class="form-text text-muted">We"ll never share your email with anyone else.</small>
+                                        @if($errors->has('phone'))
+                                            <div class="help-block">
+                                                {{$errors->first('phone')}}
+                                            </div>
+                                        @endif
                                     </div>
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-6 {{$errors->has('password')? 'has-error' : ''}}">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        @if($errors->has('password'))
+                                            <div class="help-block">
+                                                {{$errors->first('password')}}
+                                            </div>
+                                        @endif
+
                                     </div>
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-6 {{$errors->has('confirmed')}}">
                                         <label for="exampleInputPassword1">Repeat password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                                        <input type="password"  name="confirmed" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                                        @if($errors->has('confirm_password'))
+                                            <div class="help-block">
+                                                {{$errors->first('confirmed')}}
+                                            </div>
+                                            @endif
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <p> <a href="#" class="btn theme-btn">Register</a> </p>
+                                        <p> <button type="submit" class="btn theme-btn">Register</button> </p>
                                     </div>
 
                                 </div>

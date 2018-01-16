@@ -16,11 +16,16 @@ class ProductController extends Controller
     }
 
     public function index(){
-
+        return $this->_foodmenu->findProductById(34);
+        //return view('pages.food');
     }
     public function show($slug){
-        $food = $this->_foodmenu->fin;
+        $food = $this->_foodmenu->findProductBySlug(['slug'=>$slug]);
+        return view('pages.food',['food'=>$food]);
+    }
+    public function showId($id){
+        $food = $this->_foodmenu->findProductById($id);
 
-        return view('pages.food');
+        return $food;
     }
 }

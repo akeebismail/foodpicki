@@ -27,8 +27,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Food\MenuFood\MenuFood::class,function (Faker\Generator $faker){
+    $name = $faker->unique()->name;
     return [
-        'name'  => $faker->word,
+        'name'  => $name,
+        'slug'  => str_slug($name,'-'),
         'price' => $faker->randomNumber(3),
         'description'   => $faker->paragraph,
         'details'   => $faker->sentence,
@@ -42,18 +44,19 @@ $factory->define(App\Food\MenuFood\MenuFood::class,function (Faker\Generator $fa
 });
 
 $factory->define(\App\Food\Category\Category::class,function (Faker\Generator $faker){
-  /*  $name = $faker->unique()->randomElement([
+   /* $name = $faker->unique()->randomElement([
         'kits and combos','suggested dishes','individual portions','snacks and sweets', 'full menu'
     ]);
+
    $kits = $faker->unique()->randomElement([
         'low carb','well with life ','varied','vegetarians and vegans'
     ]);
     */
-  /*
+   /*
    $dish = $faker->unique()->randomElement( [
        'meat','chicken','fish','vegetarians and vegans'
    ]);
-  */
+   */
     $portions = $faker->unique()->randomElement([
         'proteins','carbohydrates','vegetables','pasta and sauces','soups and broths'
     ]);
@@ -63,6 +66,16 @@ $factory->define(\App\Food\Category\Category::class,function (Faker\Generator $f
         'slug'      => str_slug($portions,'-'),
         'details'   => $faker->sentence,
         'description'  => $faker->paragraph,
-        'parent_id'    => 3,
+        'parent_id'    => 4,
+    ];
+});
+
+$factory->define(App\Food\Images\Images::class, function (Faker\Generator $faker){
+
+    return [
+        'label' => $faker->word,
+        'menufood_id'   => rand(1,100),
+        'category_id'   => rand(1,100),
+        'image_url'     => 'http://via.placeholder.com/350x150'
     ];
 });

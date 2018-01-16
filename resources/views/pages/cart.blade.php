@@ -31,179 +31,47 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="collapse in" id="1">
-                        <div class="food-item white">
+                        <?php $i = 0; ?>
+                        @foreach($foods as $food)
+                        <div class="food-item {{ ($i % 2 == 0) ? 'white' :'' }}">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
+                                <div class="col-xs-4 col-sm-6 col-lg-6 col-md-6">
                                     <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food4.jpg" alt="Food logo"></a>
+                                        <a class="restaurant-logo pull-left" href="#"><img src="{{asset('shop/images/food4.jpg')}}" alt="Food logo"></a>
                                     </div>
                                     <!-- end:Logo -->
                                     <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
+                                        <h6><a href="#">{{$food->product->name}}</a></h6>
+                                        <p> ${{$food->product->price}}</p>
                                     </div>
                                     <!-- end:Description -->
                                 </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
-                        <!-- end:Food item -->
-                        <div class="food-item">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food5.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
+                                <div class="col-sm-2 col-xs-4 col-lg-2 col-md-2">
+                                    <form class="form-group" action="{{route('cart.update',$food->rowId)}}" method="post">
+                                        {{csrf_field()}} {{method_field('PUT')}}
+                                        <div class="rows">
+                                            <input type="text"  style="width: 75px;" class="" name="quantity" value="{{$food->qty}}">
+                                            <button type="submit"  class="btn btn-small btn-secondary">Add</button>
+
+                                        </div>
+                                    </form>
                                 </div>
                                 <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
-                        <!-- end:Food item -->
-                        <div class="food-item white">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food6.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
+                                <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 pull-right item-cart-info">
+                                    <form action="{{route('cart.destroy', $food->rowId)}}" method="post">
+                                        {{csrf_field()}} {{method_field('DELETE')}}
+                                        <button type="submit" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal"><i class="fa fa-trash"></i> </button>
+                                    </form>
                                 </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
                             </div>
                             <!-- end:row -->
                         </div>
-                        <!-- end:Food item -->
-                        <div class="food-item">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food7.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
-                                </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
+                            <?php $i++; ?>
+                        @endforeach
                         <!-- end:Food item -->
                     </div>
                     <!-- end:Collapse -->
                 </div>
-                <!-- end:Widget menu -->
-                <div class="menu-widget" id="2">
-                    <div class="widget-heading">
-                        <h3 class="widget-title text-dark">
-                            PAST Food Order <a class="btn btn-link pull-right" data-toggle="collapse" href="#popular2" aria-expanded="true">
-                                <i class="fa fa-angle-right pull-right"></i>
-                                <i class="fa fa-angle-down pull-right"></i>
-                            </a>
-                        </h3>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="collapse in" id="popular2">
-                        <div class="food-item">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food4.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
-                                </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
-                        <!-- end:Food item -->
-                        <div class="food-item white">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food5.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
-                                </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
-                        <!-- end:Food item -->
-                        <div class="food-item">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food6.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
-                                </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
-                        <!-- end:Food item -->
-                        <div class="food-item white">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-lg-8">
-                                    <div class="rest-logo pull-left">
-                                        <a class="restaurant-logo pull-left" href="#"><img src="images/food7.jpg" alt="Food logo"></a>
-                                    </div>
-                                    <!-- end:Logo -->
-                                    <div class="rest-descr">
-                                        <h6><a href="#">Veg Extravaganza</a></h6>
-                                        <p> Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                                    </div>
-                                    <!-- end:Description -->
-                                </div>
-                                <!-- end:col -->
-                                <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">$ 19.99</span> <a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal">&#43;</a> </div>
-                            </div>
-                            <!-- end:row -->
-                        </div>
-                        <!-- end:Food item -->
-
-                    </div>
-
-                    <!-- end:Collapse -->
-                </div>
-                <!-- end:Widget menu -->
                 <!--/row -->
                 <div class="clearfix"></div>
             </div>
@@ -215,40 +83,6 @@
                                 Your Shopping Cart
                             </h3>
                             <div class="clearfix"></div>
-                        </div>
-                        <div class="order-row bg-white">
-                            <div class="widget-body">
-                                <div class="title-row">Pizza Quatro Stagione <a href="#"><i class="fa fa-trash pull-right"></i></a></div>
-                                <div class="form-group row no-gutter">
-                                    <div class="col-xs-8">
-                                        <select class="form-control b-r-0" id="exampleSelect1">
-                                            <option>Size SM</option>
-                                            <option>Size LG</option>
-                                            <option>Size XL</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <input class="form-control" type="number" value="2" id="example-number-input">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-row">
-                            <div class="widget-body">
-                                <div class="title-row">Carlsberg Beer <a href="#"><i class="fa fa-trash pull-right"></i></a></div>
-                                <div class="form-group row no-gutter">
-                                    <div class="col-xs-8">
-                                        <select class="form-control b-r-0">
-                                            <option>Size SM</option>
-                                            <option>Size LG</option>
-                                            <option>Size XL</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <input class="form-control" value="4" id="quant-input">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <!-- end:Order row -->
                         <div class="widget-delivery clearfix">
@@ -265,10 +99,13 @@
                         </div>
                         <div class="widget-body">
                             <div class="price-wrap text-xs-center">
-                                <p>TOTAL</p>
-                                <h3 class="value"><strong>$ 25,49</strong></h3>
+                                <p>Subtotal</p>
+                                <h4 class="value">$ {{$subtotal}}</h4>
                                 <p>Free Shipping</p>
-                                <button onclick="location.href='checkout.html'" type="button" class="btn theme-btn btn-lg">Checkout</button>
+
+                                <p>Total</p>
+                                <h5 class="value"><strong>$ {{$total}}</strong></h5>
+                                <button  type="button" class="btn theme-btn btn-lg">Checkout</button>
                             </div>
                         </div>
                     </div>

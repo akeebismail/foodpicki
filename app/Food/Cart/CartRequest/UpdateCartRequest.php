@@ -14,6 +14,8 @@ class UpdateCartRequest extends FormRequest{
         return true;
     }
     public function rules(){
-        return [];
+        return [
+            'quantity' => 'required'
+        ];
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 
 class MenuFoodRepository extends FoodRepository implements MenuFoodInterface {
-
+    use MenuFoodTransformable;
     public function __construct(MenuFood $model)
     {
         parent::__construct($model);
@@ -94,9 +94,9 @@ class MenuFoodRepository extends FoodRepository implements MenuFoodInterface {
     {
         try {
 
-            return $this->transformProduct($this->findOneOrFail($id));
+            return $this->transformFood($this->findOneOrFail($id));
         } catch (ModelNotFoundException $e) {
-            throw new ProductNotFoundException($e->getMessage());
+            throw new MenufoodNotFoundExcption($e->getMessage());
         }
     }
 
@@ -163,7 +163,7 @@ class MenuFoodRepository extends FoodRepository implements MenuFoodInterface {
         try {
             return $this->findOneByOrFail($slug);
         } catch (ModelNotFoundException $e) {
-            throw new ProductNotFoundException($e->getMessage());
+            throw new MenufoodNotFoundExcption($e->getMessage());
         }
     }
 

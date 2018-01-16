@@ -35,8 +35,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin','as'=>'admin.','role'=>'ad
 Route::get('category','CategoryController@index')->name('category');
 Route::get('category/{slug}','CategoryController@show')->name('category.name');
 Route::get('category/{id}','CategoryController@showIn')->name('category.id');
-Route::get('foodmenu','ProductController@index')->name('food');
-Route::get('foodmenu/{slug}','ProductController@show')->name('foodmenu');
-Route::get('foodmenu/{id}','ProductController@showId')->name('foodid');
+Route::get('foodmenu','ProductController@index')->name('foodmenu');
+Route::get('foodmenu/{slug}','ProductController@show')->name('foodmenu.name');
+Route::get('foodmenu/{id}','ProductController@showId')->name('foodmenu.id');
 
 Route::resource('cart','CartController');

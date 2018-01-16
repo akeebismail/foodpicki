@@ -10,7 +10,7 @@ class MenuFood extends Model
     //
     protected $table = 'menufood';
     protected $fillable = [
-        'name','price','description','details','nutrition_info','prep_methods',
+        'name','price','description','details','nutrition_info','prep_methods','slug',
         'weight','calories','ingredients','discount'
     ];
 

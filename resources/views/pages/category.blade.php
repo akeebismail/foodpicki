@@ -231,7 +231,7 @@
                                 <div class="right-content bg-white">
                                     <div class="right-review">
                                         <div class="rating-block"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-                                        <p> 245 Reviews</p> <a href="profile.html" class="btn theme-btn-dash">View Menu</a> </div>
+                                        <p> 245 Reviews</p> <a href="" class="btn theme-btn-dash">View Menu</a> </div>
                                 </div>
                                 <!-- end:right info -->
                             </div>

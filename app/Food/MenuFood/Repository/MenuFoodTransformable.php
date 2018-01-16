@@ -14,6 +14,7 @@ trait MenuFoodTransformable {
         $menu = new MenuFood;
         $menu->id = $food->id;
         $menu->name = $food->name;
+        $menu->slug  = $food->slug;
         $menu->price = $food->price;
         $menu->description = $food->description;
         $menu->details = $food->details;

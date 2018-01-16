@@ -11,7 +11,7 @@ use App\Food\FoodBase\Repository\FoodInterface;
 use App\Food\MenuFood\MenuFood;
 
 interface CartInterface extends FoodInterface{
-    public function addToCart(MenuFood $menuFood, int $int, $options = []);
+    public function addToCart(MenuFood $menuFood,  $int, $options = []);
 
     public function getCartItems();
 

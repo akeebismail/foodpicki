@@ -136,9 +136,18 @@
                                     <div class="review pull-right"><a href="#">198 reviews</a> </div>
                                 </div>
                                 <div class="content">
-                                    <h5><a href="#">{{$item->name}}</a></h5>
+                                    <h5><a href="{{route('foodmenu.name',$item->slug)}}">{{$item->name}}</a></h5>
                                     <div class="product-name">Food and Chiken chips </div>
-                                    <div class="price-btn-block"> <span class="price">$ {{$item->price}}</span> <a href="" class="btn theme-btn-dash pull-right">Order Now</a> </div>
+                                    <div class="price-btn-block"> <span class="price">$ {{$item->price}}</span>
+                                        <a href="" class="btn theme-btn-dash pull-right"
+                                           onclick="event.preventDefault(); document.getElementById('addToCart{{$item->id}}').submit()"
+                                        >Order Now</a>
+                                        <form action="{{route('cart.store')}}" method="post" id="addToCart{{$item->id}}" style="display: none">
+                                            {{csrf_field()}}
+                                            <input type="hidden" name="quantity" value="1"/>
+                                            <input type="hidden" name="product" value="{{$item->id}}"/>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

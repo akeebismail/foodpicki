@@ -22,9 +22,9 @@ class CartRepository extends FoodRepository implements CartInterface {
      * @param int $int
      * @param array $options
      */
-    public function addToCart(MenuFood $menuFood, int $int, $options = [])
+    public function addToCart(MenuFood $menuFood,  $int, $options = [])
     {
-        $this->model->add($menuFood, $int, $options);
+        $this->model->add($menuFood->id,$menuFood->name,$int, $menuFood->price, $options);
     }
 
     /**
