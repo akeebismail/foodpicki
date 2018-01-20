@@ -22,6 +22,7 @@ class HeaderService extends ServiceProvider{
         });
     }
 
+
     private function category(){
         $catRepo = new  CategoryRepository(new Category);
 

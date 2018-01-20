@@ -87,6 +87,5 @@ class OrderRepository extends FoodRepository implements OrderInterface {
     public function searchOrder($text)
     {
         // TODO: Implement searchOrder() method.
-
     }
 }

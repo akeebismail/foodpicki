@@ -39,4 +39,12 @@ Route::get('foodmenu','ProductController@index')->name('foodmenu');
 Route::get('foodmenu/{slug}','ProductController@show')->name('foodmenu.name');
 Route::get('foodmenu/{id}','ProductController@showId')->name('foodmenu.id');
 
+Route::group(['middleware'=>['auth']], function (){
+    Route::get('checkout', 'CheckoutController@index');
+    Route::post('check/store','CheckoutController@store')->name('checkout.store');
+    Route::get('checkout/success','CheckoutController@success')->name('checkout.success');
+    Route::get('checkout/cancel',['uses'=>'CheckoutController@cancel'])->name('checkout.cancel');
+    Route::get('checkout/execute',['uses'=>'CheckoutController@execute'])->name('checkout.execute');
+});
+
 Route::resource('cart','CartController');
